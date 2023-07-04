@@ -24,6 +24,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run Cypress tests
+      - name: Odpal testy
         run: npm run e2e:chrome
 
