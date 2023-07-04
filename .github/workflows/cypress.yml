@@ -1,4 +1,4 @@
-name: Cypress Tests Moj plik
+name: Cypress Czy odpali testy
 
 on:
   push:
