@@ -10,20 +10,16 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
+      - name: Chrome
+        uses: cypress-io/github-action@v5
+        timeout-minutes: 10
         with:
-          node-version: 14
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Odpal testy
-        run: npm run e2e:chrome
-
+          build: npm run e2e:chrome
+          start: npm start
+          browser: chrome
