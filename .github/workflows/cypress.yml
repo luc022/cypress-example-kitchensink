@@ -1,25 +1,17 @@
-name: Cypress Czy odpali testy
+name: Czy odpali testy
 
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+on: push
 
 jobs:
-  build:
+  chrome:
     runs-on: ubuntu-22.04
-
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v3
-
       - name: Chrome
         uses: cypress-io/github-action@v5
         timeout-minutes: 10
         with:
-          build: npm run e2e:chrome
-          start: npm start
+          build: npm run build
+          start: npm run e2e
           browser: chrome
